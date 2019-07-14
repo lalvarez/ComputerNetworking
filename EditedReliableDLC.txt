@@ -1,0 +1,99 @@
+# JNW2 configuration file. Lines beginning with # are ignored as comments.
+
+# Nodes is the number of networks in the simulation
+<subnets>
+3
+</subnets>
+
+# Diameter of the WAN
+<diameter>
+1
+</diameter>
+
+# Optional indicator that WAN links use a reliable protocol
+<reliableLinks>
+true
+</reliableLinks>
+
+# Optional serial link bit error rate
+# Must occur before <links> if present
+<serialLinkBitErrorRate>
+0
+</serialLinkBitErrorRate>
+
+# Table Describing each WAN link
+# if a pair of nodes has a link between them
+# the data rate in kb/s is given; else 0
+<links>
+    0 512 512
+    512 0 512
+    512 512 0
+</links>
+
+# The interfaces number that each Router object
+# uses to communicate with another (0 if none)
+<exitInterfaces>
+    0    1  2
+    3    0  4
+    5   6   0
+</exitInterfaces>
+
+
+# List of subnets in the simulation. Each subnet in a simulation has one LAN on which
+# a number of hosts may reside. The LAN network is the same as the Router's ID. Table holds:
+# netnum; type {Contention(1), TokenRing(2), Switched(3)}; Host Count; LAN dataRate (Mb/s)
+# note: Host Count does not include the router interface; that is added internally
+
+<subnet>
+1   1   1   100
+2   1   1   100 
+3   1   1   100
+</subnet>
+
+# LAN interface addresses for the hosts in each subnet
+# first column is netnum; succeeding columns are the ifaceNumber
+# for each node (router or host), in order
+<lanInterface>
+1 51 52
+2 53 54
+3 55 56
+</lanInterface> 
+
+# Routing matrix gives next-hop router to receive a packet leaving
+# [row] and destined for [column]
+<routingMatrix>
+1 2 3
+1 2 3
+1 2 3
+</routingMatrix>
+
+# The following is an optional list where additional descriptive information
+# and parameters may be assigned to the hosts inferred in the LAN list.
+# If this list exists it must be complete.
+# Router Host Name
+
+<hosts>
+</hosts>
+
+# Contains number of multicast recipients in each LAN. Order matches LAN list.
+multicast
+1    2    3
+</multicast>
+
+# Source Data Files (max 10)
+<datafiles>
+email1-1.1-2.1.txt
+email2-1.1-2.1.txt
+email3-1.1-2.1.txt
+email1-2.1-1.1.txt
+email2-2.1-1.1.txt
+email3-2.1-1.1.txt
+</datafiles>
+
+
+# Print Layers
+<printat>
+PRINTAT_CRC_FCS
+PRINTAT_APPLICATION_LAYER 
+PRINTAT_DLC_LAYER
+</printat>

@@ -1,0 +1,108 @@
+# JNW2 configuration file. Lines beginning with # are ignored as comments.
+
+# Nodes is the number of subnets in the simulation
+<subnets>
+7
+</subnets>
+
+# Diameter of the WAN
+# This is auto-generated from the graphic network builder.
+<diameter>
+3
+</diameter>
+
+# Table Describing each WAN link
+# if a pair of nodes has a link between them
+# and there is a data rate, the data rate in kb/s,
+# if there is no data rate 1, else 0.
+<links>
+0	200	500	0	0	0	0	
+200	0	0	200	500	0	0	
+500	0	0	100	0	500	0	
+0	200	100	0	200	200	0	
+0	500	0	200	0	0	100	
+0	0	500	200	0	0	500	
+0	0	0	0	100	500	0	
+</links>
+
+# The interfaces number that each Router object
+# uses to communicate with another (0 if none)
+# This is auto-generated from the graphic network builder.
+<exitInterfaces>
+0	1	2	0	0	0	0	
+3	0	0	4	5	0	0	
+6	0	0	7	0	8	0	
+0	9	10	0	11	12	0	
+0	13	0	14	0	0	15	
+0	0	16	17	0	0	18	
+0	0	0	0	19	20	0	
+</exitInterfaces>
+
+# List of subnets in the simulation. Each subnet in a simulation has one LAN on which
+# a number of hosts may reside. The LAN network is the same as the Router's ID. Table holds:
+# netnum; type {Contention(1), TokenRing(2), Switched(3)}; Host Count; LAN dataRate (MBps)
+# note: Host Count does not include the router interface; that is added internally
+<subnet>
+1	1	2	100
+2	1	2	100
+3	1	2	100
+4	1	2	100
+5	1	2	100
+6	1	2	100
+7	1	2	100
+</subnet>
+
+# LAN interface addresses for the hosts in each subnet
+# first column is netnum; succeeding columns are the ifaceNumber
+# for each node (router or host), in order
+# This is auto-generated from the graphic network builder.
+<lanInterface>
+1	51	52	53	
+2	54	55	56	
+3	57	58	59	
+4	60	61	62	
+5	63	64	65	
+6	66	67	68	
+7	69	70	71	
+</lanInterface>
+
+# The following is an optional list where additional descriptive information
+# and parameters may be assigned to the hosts inferred in the LAN list.
+# If this list exists it must be complete.
+# Router # Host#   Name
+# This is auto-generated from the graphic network builder.
+<hosts>
+1	1	Router1
+1	2	Lan1Host2
+1	3	Lan1Host3
+2	1	Router2
+2	2	Lan2Host2
+2	3	Lan2Host3
+3	1	Router3
+3	2	Lan3Host2
+3	3	Lan3Host3
+4	1	Router4
+4	2	Lan4Host2
+4	3	Lan4Host3
+5	1	Router5
+5	2	Lan5Host2
+5	3	Lan5Host3
+6	1	Router6
+6	2	Lan6Host2
+6	3	Lan6Host3
+7	1	Router7
+7	2	Lan7Host2
+7	3	Lan7Host3
+</hosts>
+
+# Location of subnets in the graphic panel
+# Table holds: netnum; x value; y value
+<subnetXY>
+1	142	309
+2	242	135
+3	270	458
+4	384	298
+5	513	130
+6	536	454
+7	596	271
+</subnetXY>
